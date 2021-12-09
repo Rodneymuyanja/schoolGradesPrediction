@@ -28,7 +28,7 @@ class TeacherViewSet(viewsets.ModelViewSet):
     """
     queryset = Teacher.objects.all()
     serializer_class = TeacherSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = []
 
 class MarksViewSet(viewsets.ModelViewSet):
     """
@@ -36,7 +36,7 @@ class MarksViewSet(viewsets.ModelViewSet):
     """
     queryset = Marks.objects.all().order_by('dateAdded')
     serializer_class =  MarksSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = []
 
 class TestsViewSet(viewsets.ModelViewSet):
     """
@@ -44,7 +44,7 @@ class TestsViewSet(viewsets.ModelViewSet):
     """
     queryset = Tests.objects.all().order_by('dateAdded')
     serializer_class = TestsSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = []
 
 class GradeViewSet(viewsets.ModelViewSet):
     """
@@ -60,4 +60,4 @@ class PredictionViewSet(viewsets.ModelViewSet):
     """
     queryset = Prediction.objects.all().order_by('dateGenerated')
     serializer_class = PredictionSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = []
