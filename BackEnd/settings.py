@@ -12,7 +12,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5@zbj90l@pgek+7y)ul^ir+hx=+7+77je&da4&8)*)l@ho8m+k'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,22 +83,19 @@ WSGI_APPLICATION = 'BackEnd.wsgi.application'
 
 
 DATABASES = {
-    """'default': {
+    'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'ENGINE': 'django.db.backends.mysql',
         'ENGINE':'django.db.backends.postgresql_psycopg2',
         #'NAME': BASE_DIR / 'db.sqlite3',
-        'NAME': 'marksprediction',
-        'USER':'aletewuxgscfna',
-        'PASSWORD':'',
-        'HOST':'ec2-54-204-128-96.compute-1.amazonaws.com',
-        'PORT':'3306',
-        'OPTIONS' : {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        }
-    }"""
+        'NAME': env('DBNAME'),
+        'USER':env('DBUSER'),
+        'PASSWORD':env('DBPASS'),
+        'HOST':env('HOST'),
+        'PORT':env('PORT'),
+    }
 
-    'default': dj_database_url.config( default=config('postgres://aletewuxgscfna:0b3fc98af7fac6e5842b12c9f6e0be77a5277afc65eb71aa7aa636a13a634891@ec2-54-204-128-96.compute-1.amazonaws.com:5432/d7j80gud3qotp7'))
+    #'default': dj_database_url.config( default=config('postgres://aletewuxgscfna:0b3fc98af7fac6e5842b12c9f6e0be77a5277afc65eb71aa7aa636a13a634891@ec2-54-204-128-96.compute-1.amazonaws.com:5432/d7j80gud3qotp7'))
 }
 
 
