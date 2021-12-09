@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,20 +77,25 @@ WSGI_APPLICATION = 'BackEnd.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
+
 DATABASES = {
-    'default': {
+    """'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
-        'ENGINE': 'django.db.backends.mysql',
+        #'ENGINE': 'django.db.backends.mysql',
+        'ENGINE':'django.db.backends.postgresql_psycopg2',
         #'NAME': BASE_DIR / 'db.sqlite3',
         'NAME': 'marksprediction',
-        'USER':'root',
+        'USER':'aletewuxgscfna',
         'PASSWORD':'',
-        'HOST':'127.0.0.1',
+        'HOST':'ec2-54-204-128-96.compute-1.amazonaws.com',
         'PORT':'3306',
         'OPTIONS' : {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
-    }
+    }"""
+
+    'default': dj_database_url.config( default=config('postgres://aletewuxgscfna:0b3fc98af7fac6e5842b12c9f6e0be77a5277afc65eb71aa7aa636a13a634891@ec2-54-204-128-96.compute-1.amazonaws.com:5432/d7j80gud3qotp7'))
 }
 
 
