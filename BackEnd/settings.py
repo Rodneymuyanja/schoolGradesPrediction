@@ -92,7 +92,7 @@ DATABASES = {
         'USER':env('DBUSER'),
         'PASSWORD':env('DBPASS'),
         'HOST':env('HOST'),
-        'PORT':env('PORT'),
+        'PORT':5432,
     }
 
 }
