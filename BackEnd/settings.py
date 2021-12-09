@@ -95,7 +95,6 @@ DATABASES = {
         'PORT':env('PORT'),
     }
 
-    #'default': dj_database_url.config( default=config('postgres://aletewuxgscfna:0b3fc98af7fac6e5842b12c9f6e0be77a5277afc65eb71aa7aa636a13a634891@ec2-54-204-128-96.compute-1.amazonaws.com:5432/d7j80gud3qotp7'))
 }
 
 
