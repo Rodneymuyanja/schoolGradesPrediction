@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-5@zbj90l@pgek+7y)ul^ir+hx=+7+77je&da4&8)*)l@ho8m+k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://markspredictorapi.herokuapp.com/']
 
 
 # Application definition
