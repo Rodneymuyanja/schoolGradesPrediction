@@ -149,7 +149,7 @@ REST_FRAMEWORK = {
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MODELS = os.path.join(BASE_DIR, 'EndPoints\models')
+MODELS = os.path.join(BASE_DIR, 'EndPoints/models')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
