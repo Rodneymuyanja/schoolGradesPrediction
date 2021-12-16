@@ -98,7 +98,8 @@ class FileUploadViewSet(viewsets.ViewSet):
     
     def create(self, request):
         serializer_class = FileSerializer(data=request.data)
-        if 'file' not in request.FILES or not serializer_class.is_valid():
+        if  not serializer_class.is_valid():
+            print("errrrrrrrrrrrorrrrrrr")
             return Response(serializer_class.errors ,status=status.HTTP_400_BAD_REQUEST)
         else:
             handle_uploaded_file(request.FILES['file'])
