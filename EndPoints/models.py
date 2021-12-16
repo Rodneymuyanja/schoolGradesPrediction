@@ -1,4 +1,5 @@
 from django.db import models
+from .apps import EndpointsConfig
 
 # Create your models here.
 
@@ -66,10 +67,16 @@ class Marks(models.Model):
         return self.comment
       
 
+
 class Prediction(models.Model):
-    student = models.ForeignKey(Student,on_delete=models.CASCADE)
+    """ student = models.ForeignKey(Student,on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
-    prediction = models.IntegerField()
-    confidenceLevel = models.IntegerField()
+    """
+    student = models.CharField(max_length=50, null=True)
+    subject = models.CharField(max_length=50, null=True)
+    prediction = models.IntegerField(null=True)
     dateGenerated = models.DateField()
 
+
+
+    
