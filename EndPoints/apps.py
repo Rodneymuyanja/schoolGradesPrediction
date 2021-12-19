@@ -9,12 +9,10 @@ class EndpointsConfig(AppConfig):
     name = 'EndPoints'
 
     # create path to models
-    path = os.path.join(settings.MODELS, 'models.p')
+    path = os.path.join(settings.MODELS, '77model.pickle')
  
-    # load models into separate variables
-    # these will be accessible via this class
+    #loading the model 
     with open(path, 'rb') as pickled:
-       data = pickle.load(pickled)
+       model = pickle.load(pickled)
 
-    regressor = data['regressor']
-    vectorizer = data['vectorizer']
+

@@ -13,7 +13,7 @@ from django.http import HttpResponse, JsonResponse
 from rest_framework.response import Response
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser, FileUploadParser
-from EndPoints.Models.getPrediction import getPred
+from EndPoints.Models.getPrediction import GetPrediction
 from rest_framework import status
 import os
 
@@ -103,6 +103,7 @@ class FileUploadViewSet(viewsets.ViewSet):
             return Response(serializer_class.errors ,status=status.HTTP_400_BAD_REQUEST)
         else:
             handle_uploaded_file(request.FILES['file'])
+            #GetPrediction(file)
             return Response(serializer_class.data, status=status.HTTP_201_CREATED)
 
 def addSubjectFolder(subject):
@@ -117,9 +118,11 @@ def addSubjectFolder(subject):
 def handle_uploaded_file(f):
     subject = f.name.split('-')[0]
     directory = addSubjectFolder(subject)
+    path = marksPath+subject+'/'+f.name
     with open(marksPath+subject+'/'+f.name, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
 
+    GetPrediction(path)
 #def GetPrediction(f):
 
