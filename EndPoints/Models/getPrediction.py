@@ -5,7 +5,6 @@ import time
 import csv
 from datetime import datetime
 import numpy as np
-import pandas as pd
 from EndPoints.serializers import PredictionSerializer
 
 import pickle
