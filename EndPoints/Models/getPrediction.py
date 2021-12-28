@@ -40,7 +40,9 @@ def GetPrediction(file):
             prediction = model.predict(v)
             print(prediction)
             
-            data = {"student":firstname,"subject":subject, "prediction":int(prediction[0]),"dateGenerated":date}
+            name = firstname+" "+lastname
+
+            data = {"student":name,"subject":subject, "prediction":int(prediction[0]),"dateGenerated":date}
 
             print("dataaa",data)
             serializer = PredictionSerializer(data=data)
